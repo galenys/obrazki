@@ -1,7 +1,9 @@
 class Game {
   constructor(n, cellWidth) {
-    this.n = n
-    this.cellWidth = cellWidth
+    this.n = n;
+    this.cellWidth = cellWidth;
+
+    this.gameOver = false;
 
     this.solution = [];
     this.currentGrid = [];
@@ -82,16 +84,18 @@ class Game {
   }
 
   handleClick() {
-    // Toggle cell if clicked
-    let row = Math.floor((mouseX - width/2) / this.cellWidth) + this.n/2;
-    let col = Math.floor((mouseY - height/2) / this.cellWidth) + this.n/2;
-    if (row >= 0 && row < this.n && col >= 0 && col < this.n) {
-      this.toggleCell(row, col);
-    }
-    [this.rowBlocks, this.colBlocks] = this.getRowAndColBlocks(this.currentGrid);
-    if (this.currentGridIsSolved()) {
-      alert("You win!");
-      noLoop();
+    if (!this.gameOver) {
+      // Toggle cell if clicked
+      let row = Math.floor((mouseX - width/2) / this.cellWidth) + this.n/2;
+      let col = Math.floor((mouseY - height/2) / this.cellWidth) + this.n/2;
+      if (row >= 0 && row < this.n && col >= 0 && col < this.n) {
+        this.toggleCell(row, col);
+      }
+      [this.rowBlocks, this.colBlocks] = this.getRowAndColBlocks(this.currentGrid);
+      if (this.currentGridIsSolved()) {
+        alert("You win!");
+        this.gameOver = true;
+      }
     }
   }
 
