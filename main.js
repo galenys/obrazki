@@ -154,7 +154,7 @@ class Game {
 let game;
 
 function setup() { 
-  createCanvas(window.innerHeight, window.innerHeight);
+  createCanvas(window.innerWidth, window.innerHeight);
   game = new Game(10, 50);
 } 
 
