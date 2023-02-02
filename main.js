@@ -11,7 +11,7 @@ class Game {
       let solutionRow = [];
       let currentRow = [];
       for (let j = 0; j < n; j++) {
-        solutionRow.push(Math.random() < 0.3 ? 0 : 1);
+        solutionRow.push(Math.random() < 0.7 ? 0 : 1);
         currentRow.push(0);
       }
       this.solution.push(solutionRow);
@@ -129,7 +129,7 @@ class Game {
       }
     }
     for (let i = -this.n/2; i < this.n/2+1; i++) {
-      if ((i + this.n/2) % 10 == 0) {
+      if ((i + this.n/2) % 5 == 0) {
         stroke(0);
         line(i * this.cellWidth, -this.n/2 * this.cellWidth, i * this.cellWidth, this.n/2 * this.cellWidth);
         line(-this.n/2 * this.cellWidth, i * this.cellWidth, this.n/2 * this.cellWidth, i * this.cellWidth);
@@ -149,7 +149,7 @@ class Game {
       text(col.join(', '), this.n/2 * this.cellWidth + 10, y+this.cellWidth/2);
 
       rotate(radians(90));
-      text(row.join(', '), this.n/2 * this.cellWidth + 10, (this.n-x)-this.cellWidth/2-10);
+      text(row.join(', '), this.n/2 * this.cellWidth + 10, (this.n-x)-this.cellWidth/2-30);
       rotate(radians(-90));
     }
   }
@@ -159,7 +159,7 @@ let game;
 
 function setup() { 
   createCanvas(window.innerWidth, window.innerHeight);
-  game = new Game(10, 50);
+  game = new Game(30, 20);
 } 
 
 function mouseClicked() {
