@@ -11,7 +11,7 @@ class Game {
       let solutionRow = [];
       let currentRow = [];
       for (let j = 0; j < n; j++) {
-        solutionRow.push(Math.random() < 0.7 ? 0 : 1);
+        solutionRow.push(Math.random() < 0.5 ? 0 : 1);
         currentRow.push(0);
       }
       this.solution.push(solutionRow);
@@ -159,7 +159,7 @@ let game;
 
 function setup() { 
   createCanvas(window.innerWidth, window.innerHeight);
-  game = new Game(30, 20);
+  game = new Game(30, 17);
 } 
 
 function mouseClicked() {
